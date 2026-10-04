@@ -1,13 +1,16 @@
 ⚡ Distributed Task Offloading & Remote GPU Rendering System
 
-<!-- Screenshot styling: professional centered layout for Markdown renderers that support CSS.
-.screenshot { text-align:center; margin:24px 0; }
-.screenshot img { display:block; margin:0 auto; max-width:100%; height:auto; border-radius:10px; }
-.screenshot p { margin-bottom:10px; }
--->
-
 CSC-334: Parallel and Distributed Computing
 A custom distributed system for offloading compute-heavy rendering tasks from a resource-constrained client to a remote GPU-equipped worker node over LAN.
+
+start the connection:<img width="1366" height="727" alt="image" src="https://github.com/user-attachments/assets/f902dea7-790d-4d7a-8205-2f62eac23a30" />
+upload vedio:<img width="1361" height="720" alt="image" src="https://github.com/user-attachments/assets/c1cc8d56-e1b2-4a72-82a2-b895d0b037f4" />
+hardware render config:<img width="1366" height="718" alt="image" src="https://github.com/user-attachments/assets/ab0a23ba-3d13-4605-9c98-819d6394db16" />
+launch remote gpu render:<img width="1358" height="716" alt="image" src="https://github.com/user-attachments/assets/8212fe5e-5c58-4490-b51c-a0426e70886e" />
+complete gpu render :<img width="1365" height="718" alt="image" src="https://github.com/user-attachments/assets/e2dd9b4d-8358-4bde-a611-74a492de8e5e" />
+gpu render result<img width="529" height="301" alt="image" src="https://github.com/user-attachments/assets/b3ccfd36-93b6-4363-9227-c9a93abd2660" />
+LOCAL CPU BENCHMARK :<img width="853" height="267" alt="image" src="https://github.com/user-attachments/assets/a387633b-f905-4735-8504-15d1a63019c3" />
+dark theme:<img width="1366" height="726" alt="image" src="https://github.com/user-attachments/assets/43dfea3b-e600-499c-89cc-c07147742fa2" />
 
 📖 Table of Contents
 
@@ -367,52 +370,15 @@ Enter Server IP — Type the worker node's IP address (e.g., 192.168.1.1 or 127.
 
 Click "Connect Worker Node" — Performs protocol handshake and starts streaming live hardware telemetry.
 
-<div align="center" style="text-align:center; margin:24px 0;">
-  <p style="margin-bottom:10px;">start the connection:</p>
-  <img src="https://github.com/user-attachments/assets/f902dea7-790d-4d7a-8205-2f62eac23a30" alt="image" width="1366" height="727" style="display:block; margin:0 auto; max-width:100%; height:auto; border-radius:10px;" />
-</div>
-
 Click "Ping" / "🚀 Speed Test" — Measures round-trip latency and active link throughput (MB/s & Mbps).
 
 Browse Video Asset(s) — Select one or multiple videos for batch queuing. The GUI automatically extracts a video thumbnail preview in the dropzone!
 
-<div align="center" style="text-align:center; margin:24px 0;">
-  <p style="margin-bottom:10px;">upload vedio:</p>
-  <img src="https://github.com/user-attachments/assets/c1cc8d56-e1b2-4a72-82a2-b895d0b037f4" alt="image" width="1361" height="720" style="display:block; margin:0 auto; max-width:100%; height:auto; border-radius:10px;" />
-</div>
-
 Configure Render Settings — Choose resolution (480p to 4K), bitrate (2M to 50M), and encoder preset (Ultrafast to Quality).
-
-<div align="center" style="text-align:center; margin:24px 0;">
-  <p style="margin-bottom:10px;">hardware render config:</p>
-  <img src="https://github.com/user-attachments/assets/ab0a23ba-3d13-4605-9c98-819d6394db16" alt="image" width="1366" height="718" style="display:block; margin:0 auto; max-width:100%; height:auto; border-radius:10px;" />
-</div>
 
 Click "Launch Remote GPU Render" — Streams progress in real-time, displays live VRAM/GPU load, downloads rendered output with SHA-256 integrity verification, plays an audio chime, and records to the persistent Job History panel!
 
-<div align="center" style="text-align:center; margin:24px 0;">
-  <p style="margin-bottom:10px;">launch remote gpu render:</p>
-  <img src="https://github.com/user-attachments/assets/8212fe5e-5c58-4490-b51c-a0426e70886e" alt="image" width="1358" height="716" style="display:block; margin:0 auto; max-width:100%; height:auto; border-radius:10px;" />
-</div>
-
-<div align="center" style="text-align:center; margin:24px 0;">
-  <p style="margin-bottom:10px;">complete gpu render :</p>
-  <img src="https://github.com/user-attachments/assets/e2dd9b4d-8358-4bde-a611-74a492de8e5e" alt="image" width="1365" height="718" style="display:block; margin:0 auto; max-width:100%; height:auto; border-radius:10px;" />
-</div>
-
-<div align="center" style="text-align:center; margin:24px 0;">
-  <p style="margin-bottom:10px;">gpu render result</p>
-  <img src="https://github.com/user-attachments/assets/b3ccfd36-93b6-4363-9227-c9a93abd2660" alt="image" width="529" height="301" style="display:block; margin:0 auto; max-width:100%; height:auto; border-radius:10px;" />
-</div>
-
 Toggle Light/Dark Mode — Click 🌙 Dark / ☀️ Light in the header navbar at any time.
-
-<div align="center" style="text-align:center; margin:24px 0;">
-  <p style="margin-bottom:10px;">dark theme:</p>
-  <img src="https://github.com/user-attachments/assets/43dfea3b-e600-499c-89cc-c07147742fa2" alt="image" width="1366" height="726" style="display:block; margin:0 auto; max-width:100%; height:auto; border-radius:10px;" />
-</div>
-
-
 
 3. Running a Performance Benchmark
 
@@ -426,11 +392,6 @@ python -m client.benchmark --input video.mp4 --server 192.168.1.1
 python -m client.benchmark --input video.mp4 --server 192.168.1.1 --port 9850 --output-dir ./results
 
 The benchmark generates:
-
-<div align="center" style="text-align:center; margin:24px 0;">
-  <p style="margin-bottom:10px;">LOCAL CPU BENCHMARK :</p>
-  <img src="https://github.com/user-attachments/assets/a387633b-f905-4735-8504-15d1a63019c3" alt="image" width="853" height="267" style="display:block; margin:0 auto; max-width:100%; height:auto; border-radius:10px;" />
-</div>
 
 benchmark_results.json — Raw data
 
