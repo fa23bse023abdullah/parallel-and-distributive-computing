@@ -3,6 +3,10 @@
 > **CSC-334: Parallel and Distributed Computing**  
 > A custom distributed system for offloading compute-heavy rendering tasks from a resource-constrained client to a remote GPU-equipped worker node over LAN.
 
+<p align="center">
+  <img width="100%" alt="Distributed GPU Rendering Studio" src="https://github.com/user-attachments/assets/43dfea3b-e600-499c-89cc-c07147742fa2" />
+</p>
+
 ---
 
 ## 📖 Table of Contents
@@ -316,13 +320,43 @@ python -m client.client_app
 
 **Step-by-step workflow:**
 
-1. **Enter Server IP** — Type the worker node's IP address (e.g., `192.168.1.1` or `127.0.0.1`).
-2. **Click "Connect Worker Node"** — Performs protocol handshake and starts streaming live hardware telemetry.
-3. **Click "Ping" / "🚀 Speed Test"** — Measures round-trip latency and active link throughput (MB/s & Mbps).
-4. **Browse Video Asset(s)** — Select one or multiple videos for batch queuing. The GUI automatically extracts a video thumbnail preview in the dropzone!
-5. **Configure Render Settings** — Choose resolution (480p to 4K), bitrate (2M to 50M), and encoder preset (Ultrafast to Quality).
-6. **Click "Launch Remote GPU Render"** — Streams progress in real-time, displays live VRAM/GPU load, downloads rendered output with SHA-256 integrity verification, plays an audio chime, and records to the persistent Job History panel!
-7. **Toggle Light/Dark Mode** — Click `🌙 Dark` / `☀️ Light` in the header navbar at any time.
+1. **Enter Server IP & Connect** — Type the worker node's IP address (e.g., `192.168.1.1` or `127.0.0.1`) and click **"Connect Worker Node"**. This initiates the protocol handshake and starts streaming live hardware telemetry (GPU model, VRAM load, temperature, and ping).
+
+<p align="center">
+  <img width="100%" alt="Start Connection" src="https://github.com/user-attachments/assets/f902dea7-790d-4d7a-8205-2f62eac23a30" />
+</p>
+
+2. **Network Diagnostics** — Click **"Ping"** or **"🚀 Speed Test"** to measure round-trip latency and active link throughput (MB/s & Mbps).
+
+3. **Browse & Load Video Asset** — Select one or multiple videos for rendering. The client GUI automatically extracts and displays an instant thumbnail preview in the dropzone!
+
+<p align="center">
+  <img width="100%" alt="Upload Video" src="https://github.com/user-attachments/assets/c1cc8d56-e1b2-4a72-82a2-b895d0b037f4" />
+</p>
+
+4. **Configure Hardware Render Settings** — Choose target resolution (480p to 4K), bitrate (2M to 50M), and encoder preset (Ultrafast to Quality).
+
+<p align="center">
+  <img width="100%" alt="Hardware Render Config" src="https://github.com/user-attachments/assets/ab0a23ba-3d13-4605-9c98-819d6394db16" />
+</p>
+
+5. **Launch Remote GPU Render** — Click **"Launch Remote GPU Render"**. The client transfers the asset, displays real-time progress percentage, live transcoding speed multiplier, remaining ETA, and server console output streaming.
+
+<p align="center">
+  <img width="100%" alt="Launch Remote GPU Render" src="https://github.com/user-attachments/assets/8212fe5e-5c58-4490-b51c-a0426e70886e" />
+</p>
+
+6. **Job Completion & Output Delivery** — The rendered output file is automatically downloaded with SHA-256 integrity verification, accompanied by an audio completion chime and persistent recording in the Job History log!
+
+<p align="center">
+  <img width="100%" alt="Complete GPU Render" src="https://github.com/user-attachments/assets/e2dd9b4d-8358-4bde-a611-74a492de8e5e" />
+</p>
+
+7. **Toggle Light/Dark Theme** — Click `🌙 Dark` / `☀️ Light` in the header navbar at any time to switch themes.
+
+<p align="center">
+  <img width="100%" alt="Dark Theme" src="https://github.com/user-attachments/assets/43dfea3b-e600-499c-89cc-c07147742fa2" />
+</p>
 
 ### 3. Running a Performance Benchmark
 
@@ -340,6 +374,10 @@ python -m client.benchmark --input video.mp4 --server 192.168.1.1 --port 9850 --
 The benchmark generates:
 - `benchmark_results.json` — Raw data
 - `benchmark_report.md` — Formatted technical report with speedup analysis
+
+<p align="center">
+  <img width="85%" alt="Local CPU Benchmark" src="https://github.com/user-attachments/assets/a387633b-f905-4735-8504-15d1a63019c3" />
+</p>
 
 ---
 
@@ -425,20 +463,98 @@ Benchmarks compare:
 
 > *Note: Actual results vary by hardware. NVENC provides the greatest speedup on slower presets.*
 
+### Benchmark Proof & Verification
+
+<div align="center">
+  <table>
+    <tr>
+      <th align="center">Local CPU Benchmark (Baseline CLI)</th>
+      <th align="center">Remote GPU Render Result (Client Modal)</th>
+    </tr>
+    <tr>
+      <td align="center" width="55%">
+        <img width="100%" alt="Local CPU Benchmark" src="https://github.com/user-attachments/assets/a387633b-f905-4735-8504-15d1a63019c3" />
+      </td>
+      <td align="center" width="45%">
+        <img width="100%" alt="GPU Render Result" src="https://github.com/user-attachments/assets/b3ccfd36-93b6-4363-9227-c9a93abd2660" />
+      </td>
+    </tr>
+  </table>
+</div>
+
 ---
 
 ## Screenshots & Demo
 
-### Client GUI — Connected & Ready
-*Launch the client and connect to the server. The handshake shows server capabilities including GPU info.*
+### 1. Client GUI — Connected & Telemetry Ready
+*Client interface connected to the remote worker node, displaying real-time GPU specifications, VRAM status, and network ping.*
 
-### Live Progress Tracking
-*Real-time progress bar and terminal showing encoding progress with speed indicator.*
+<p align="center">
+  <img width="100%" alt="Start Connection" src="https://github.com/user-attachments/assets/f902dea7-790d-4d7a-8205-2f62eac23a30" />
+</p>
 
-### Benchmark Comparison
-*Side-by-side comparison of local CPU vs. remote GPU transcoding times.*
+---
 
-> 📸 *Add your own screenshots to the `screenshots/` directory.*
+### 2. Video Asset Upload & Dropzone Preview
+*Automatic video thumbnail generation and file inspection upon loading video media into the asset dropzone.*
+
+<p align="center">
+  <img width="100%" alt="Upload Video" src="https://github.com/user-attachments/assets/c1cc8d56-e1b2-4a72-82a2-b895d0b037f4" />
+</p>
+
+---
+
+### 3. Hardware Transcoding Configuration
+*Customizable render profile controls including output resolution, target bitrate, and hardware encoder presets.*
+
+<p align="center">
+  <img width="100%" alt="Hardware Render Config" src="https://github.com/user-attachments/assets/ab0a23ba-3d13-4605-9c98-819d6394db16" />
+</p>
+
+---
+
+### 4. Remote GPU Render in Progress
+*Live job execution tracking showing asynchronous progress bar, encoding speed multiplier, remaining ETA, and server console streaming.*
+
+<p align="center">
+  <img width="100%" alt="Launch Remote GPU Render" src="https://github.com/user-attachments/assets/8212fe5e-5c58-4490-b51c-a0426e70886e" />
+</p>
+
+---
+
+### 5. Render Completion & Job History
+*Job completion notification with automated SHA-256 download verification and persistent logging in the job history panel.*
+
+<p align="center">
+  <img width="100%" alt="Complete GPU Render" src="https://github.com/user-attachments/assets/e2dd9b4d-8358-4bde-a611-74a492de8e5e" />
+</p>
+
+---
+
+### 6. GPU Render Result Summary
+*Detailed render statistics modal showing total execution duration, compression ratio, and file verification.*
+
+<p align="center">
+  <img width="60%" alt="GPU Render Result" src="https://github.com/user-attachments/assets/b3ccfd36-93b6-4363-9227-c9a93abd2660" />
+</p>
+
+---
+
+### 7. Local CPU Baseline Benchmark
+*Command-line benchmark execution measuring local CPU software encoding times for speedup ratio calculations.*
+
+<p align="center">
+  <img width="85%" alt="Local CPU Benchmark" src="https://github.com/user-attachments/assets/a387633b-f905-4735-8504-15d1a63019c3" />
+</p>
+
+---
+
+### 8. Studio Dark Theme Mode
+*High-contrast Luxury Dark Mode interface with responsive animated elements and obsidian color scheme.*
+
+<p align="center">
+  <img width="100%" alt="Dark Theme" src="https://github.com/user-attachments/assets/43dfea3b-e600-499c-89cc-c07147742fa2" />
+</p>
 
 ---
 
