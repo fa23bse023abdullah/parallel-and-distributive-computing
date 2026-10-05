@@ -162,7 +162,11 @@ class DistributedRenderGUI(ctk.CTk):
         self.benchmark_results = []
         self.batch_queue = []
         self.current_lower_tab = "console"
-        self.history_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "job_history.json")
+        if getattr(sys, "frozen", False):
+            base_dir = os.path.dirname(sys.executable)
+        else:
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+        self.history_file = os.path.join(base_dir, "job_history.json")
         self.job_history = self._load_job_history()
         
         self.canvas_phase = 0.0

@@ -1,5 +1,17 @@
 [
   {
+    "job_id": "5d6494dd",
+    "timestamp": "2026-10-04 23:49:20",
+    "filename": "16638149_3840_2160_30fps.mp4",
+    "resolution": "1080p",
+    "preset": "Medium",
+    "elapsed": "35.2s",
+    "output_size": "5.42 MB",
+    "compression_ratio": 10.7,
+    "output_file": "C:\\Users\\ABDULLAH\\Documents\\GPU Rendering System\\workspace\\output\\16638149_3840_2160_30fps_1080p_medium.mp4",
+    "status": "Complete"
+  },
+  {
     "job_id": "b4bbf664",
     "timestamp": "2026-10-04 23:06:12",
     "filename": "16638149_3840_2160_30fps.mp4",
