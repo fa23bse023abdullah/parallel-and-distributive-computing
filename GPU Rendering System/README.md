@@ -292,7 +292,6 @@ scripts\build_executables.bat
 ---
 
 ## Usage Guide
-
 ### 1. Starting the Server Daemon (Worker Node)
 
 On the GPU-equipped machine:
